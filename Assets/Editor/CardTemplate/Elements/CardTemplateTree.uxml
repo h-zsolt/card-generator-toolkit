@@ -1,0 +1,25 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Editor/CardTemplate/Elements/CardTemplateStyle.uss?fileID=7433441132597879392&amp;guid=ef59826cc12f1fa4988f46ffd98c4a65&amp;type=3#CardTemplateStyle" />
+    <ui:Label text="Image Editor" name="title" />
+    <ui:DropdownField label="Texture Option" index="0" choices="Generate New, Load Texture" name="texture-option" style="flex-grow: 0;" />
+    <ui:VisualElement name="texture-data" style="flex-direction: row;">
+        <uie:IntegerField label="Width" value="100" name="width-field" style="flex-grow: 1;" />
+        <uie:IntegerField label="Height" value="100" name="height-field" style="flex-grow: 1;" />
+        <ui:Button text="Create Texture" display-tooltip-when-elided="true" name="create-button" style="flex-grow: 1;" />
+    </ui:VisualElement>
+    <uie:ObjectField label="Texture" type="UnityEngine.Texture2D, UnityEngine.CoreModule" name="texture-selection" style="padding-top: 1px;" />
+    <ui:DropdownField label="Alpha Option" index="0" choices="Alpha Whole,Gradient Right,Gradient Left,Gradient Bottom,Gradient Top" name="alpha-selection" />
+    <ui:SliderInt picking-mode="Ignore" label="Alpha" value="255" high-value="255">
+        <uie:IntegerField value="255" name="alpha-input" style="max-width: 38px; min-width: 38px;" />
+    </ui:SliderInt>
+    <uie:GradientField label="Gradient" style="padding-top: 3px;" />
+    <ui:VisualElement name="preview-area" style="align-items: center; justify-content: center;">
+        <uie:ColorField label="Color" value="#FFFFFFFF" name="tint" />
+        <ui:VisualElement name="preview-pane" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Editor/CardTemplate/Resources/Transparency500.png?fileID=2800000&amp;guid=98cbbb7da32cfce4da84daf70b704567&amp;type=3#Transparency500&apos;); height: 350px; width: 350px; -unity-text-align: middle-center; -unity-background-scale-mode: stretch-to-fill; align-items: center; justify-content: center;">
+            <ui:VisualElement name="image-preview" style="width: 300px; height: 300px; flex-grow: 0; align-items: center; justify-content: center; max-height: 300px; max-width: 300px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement style="flex-grow: 1; justify-content: center; align-items: stretch;">
+        <ui:Button text="Export Texture" display-tooltip-when-elided="true" name="export" style="justify-content: center;" />
+    </ui:VisualElement>
+</ui:UXML>

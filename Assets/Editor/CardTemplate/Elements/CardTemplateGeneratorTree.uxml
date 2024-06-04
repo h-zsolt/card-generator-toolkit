@@ -1,0 +1,55 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Editor/CardTemplate/Elements/CardTemplateGeneratorStyle.uss?fileID=7433441132597879392&amp;guid=75a32986cc01d2048a2b037453736cf7&amp;type=3#CardTemplateGeneratorStyle" />
+    <ui:Label text="Card Template Generator" display-tooltip-when-elided="true" name="title" style="-unity-text-align: upper-center; -unity-font-style: bold; font-size: 25px; color: rgb(255, 255, 255); -unity-text-outline-width: 1px; -unity-text-outline-color: rgb(56, 56, 56); background-color: rgb(0, 0, 0);" />
+    <ui:VisualElement style="flex-direction: row;">
+        <ui:VisualElement name="menu-pane">
+            <ui:DropdownField label="Setup Option" index="0" choices="New Template, Load Template" name="load-mode" />
+            <ui:VisualElement name="generate-new" style="align-items: stretch; flex-direction: row;">
+                <uie:IntegerField label="Width" value="100" name="generation-width-field" style="flex-grow: 0; width: 80px;" />
+                <uie:IntegerField label="Height" value="100" name="generation-height-field" style="flex-grow: 0; width: 80px;" />
+                <ui:Button text="Generate" display-tooltip-when-elided="true" name="new-template-button" style="flex-grow: 1;" />
+            </ui:VisualElement>
+            <uie:ObjectField label="Load Template" name="loaded-template" type="UnityEngine.Object, UnityEngine.CoreModule" allow-scene-objects="false" />
+            <ui:Toggle label="Display Basic Background" name="toggle-background" value="true" />
+            <ui:ScrollView name="segment-list" vertical-page-size="-1" style="max-height: 200px; min-height: 200px; flex-shrink: 0;" />
+            <ui:VisualElement name="segment-buttons" style="flex-direction: row;">
+                <ui:Button text="Delete Segment" display-tooltip-when-elided="true" name="delete-segment-button" style="flex-grow: 0; width: 120px; margin-bottom: 5px;" />
+                <ui:Button text="Add New Segment" display-tooltip-when-elided="true" name="new-segment-button" style="flex-grow: 0; width: 120px; align-items: flex-end; margin-left: 10px; margin-bottom: 5px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="output" style="flex-direction: row;">
+                <ui:Button text="Export Image" display-tooltip-when-elided="true" name="image-export" style="flex-grow: 0; align-items: stretch; width: 120px;" />
+                <ui:Button text="Save Template" display-tooltip-when-elided="true" name="save-button" style="flex-grow: 0; width: 120px; align-items: stretch; white-space: nowrap; -unity-text-align: middle-center; margin-left: 10px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="preview-pane" style="align-items: center; flex-direction: column; width: 300px; height: 300px; background-image: resource(&apos;Transparency500&apos;); padding-top: 0; margin-top: 3px; justify-content: center;">
+            <ui:VisualElement name="preview-template" style="width: 250px; height: 250px; align-items: stretch; -unity-text-align: upper-left; justify-content: flex-start;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="editor-pane" style="width: 320px;">
+            <ui:TextField picking-mode="Ignore" label="Name" value="filler text" text="filler text" name="segment-name" />
+            <ui:VisualElement name="segment-location" style="flex-direction: row;">
+                <uie:IntegerField label="X Pos" value="0" name="segment-horizontal" style="flex-grow: 0; flex-basis: auto; flex-wrap: nowrap; justify-content: flex-start; width: 100px;" />
+                <uie:IntegerField label="Y Pos" value="0" name="segment-vertical" style="flex-grow: 0; width: 100px;" />
+                <uie:IntegerField label="Layer" value="0" name="segment-layer" style="width: 108px; max-width: 108px; min-width: 108px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="segment-dimensions" style="flex-direction: row;">
+                <uie:IntegerField label="Width" value="20" name="segment-width" style="flex-grow: 0; max-width: none; width: 100px;" />
+                <uie:IntegerField label="Height" value="20" name="segment-height" style="flex-grow: 0; width: 100px;" />
+            </ui:VisualElement>
+            <uie:ObjectField label="Background Image" type="UnityEngine.Texture2D, UnityEngine.CoreModule" name="segment-background" />
+            <ui:SliderInt picking-mode="Ignore" label="Background Alpha" value="255" high-value="255" name="alpha-slider">
+                <uie:IntegerField value="255" name="alpha-manual" style="width: 35px;" />
+            </ui:SliderInt>
+            <ui:DropdownField label="Horizontal Alignment" index="0" choices="Left-to-Right,Right-To-Left" name="interpreter-horizontal" />
+            <ui:DropdownField label="Vertical Alignment" index="1" choices="Up-to-Down,Down-to-Up" name="interpreter-vertical" />
+            <ui:SliderInt picking-mode="Ignore" label="SliderInt" value="255" high-value="255" name="interpreter-alpha-slider">
+                <uie:IntegerField value="255" name="interpreter-manual-alpha" style="width: 35px;" />
+            </ui:SliderInt>
+            <ui:ScrollView name="interpreter" style="max-height: 100px; min-height: 100px; height: 100px;" />
+            <ui:VisualElement style="flex-direction: row;">
+                <ui:Button text="Remove Element" display-tooltip-when-elided="true" name="remove-interpretation" style="flex-grow: 1;" />
+                <ui:Button text="Add Element" display-tooltip-when-elided="true" name="add-interpretation" style="flex-grow: 1;" />
+            </ui:VisualElement>
+            <ui:TextField picking-mode="Ignore" label="Preview Example" name="interpreter-example" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

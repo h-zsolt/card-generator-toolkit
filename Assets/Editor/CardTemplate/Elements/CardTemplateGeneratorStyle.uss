@@ -1,0 +1,46 @@
+VisualElement {
+}
+
+#generation-width-field > Label {
+    min-width: 40px;
+    max-width: 40px;
+}
+
+#generation-height-field > Label {
+    min-width: 40px;
+}
+
+#segment-width > Label {
+    width: 40px;
+    max-width: 40px;
+    min-width: 40px;
+}
+
+#segment-height > Label {
+    max-width: 40px;
+    min-width: 40px;
+}
+
+#segment-horizontal > Label {
+    max-width: 40px;
+    min-width: 40px;
+}
+
+#segment-vertical > Label {
+    max-width: 40px;
+    min-width: 40px;
+}
+
+#segment-layer > Label {
+    width: 40px;
+    max-width: 40px;
+    min-width: 40px;
+}
+
+#toggle-background > VisualElement {
+    align-items: flex-end;
+    flex-shrink: 1;
+    right: auto;
+    left: 90px;
+    top: 1px;
+}

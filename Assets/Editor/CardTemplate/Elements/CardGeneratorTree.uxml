@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Editor/CardTemplate/Elements/CardGeneratorStyle.uss?fileID=7433441132597879392&amp;guid=ed6f9224fa2ad8d48baf4e1f0e5307a5&amp;type=3#CardGeneratorStyle" />
+    <ui:Label text="Card Generator" display-tooltip-when-elided="true" style="background-color: rgb(0, 0, 0); -unity-text-align: upper-center; -unity-font-style: bold; font-size: 24px; margin-top: 0; margin-bottom: 3px;" />
+    <uie:ObjectField label="Template (CTG) File " type="UnityEngine.Object, UnityEngine.CoreModule" name="ctg-file" tooltip="Use the Card Template Generator to create one" />
+    <uie:ObjectField label="List File " type="UnityEngine.Object, UnityEngine.CoreModule" name="list-file" tooltip="Name line followed by one line per segment to interpret" />
+    <ui:Toggle label="Enable Prefix" value="false" name="toggle-prefix" />
+    <ui:TextField picking-mode="Ignore" label="Prefix" value="Prefix" text="Prefix" name="prefix-name" />
+    <ui:TextField picking-mode="Ignore" label="Directory Name" value="Example" text="Example" name="directory-name" tooltip="Only sets the default, selection still required" />
+    <ui:DropdownField label="Format" index="0" choices="PNG" name="exp-format" />
+    <ui:Button text="Generate Cards" display-tooltip-when-elided="true" name="generate" />
+</ui:UXML>

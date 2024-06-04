@@ -1,0 +1,38 @@
+#pragma kernel AlphaWhole
+#pragma kernel GradientY
+#pragma kernel GradientX
+#pragma kernel CookOnTop
+
+RWTexture2D<float4> Result;
+RWTexture2D<float4> Input;
+float4 tint;
+float opacity;
+RWTexture2D<float4> gradient;
+RWTexture2D<float4> cooking;
+
+[numthreads(8,8,1)]
+void AlphaWhole (uint3 id : SV_DispatchThreadID)
+{
+    Result[id.xy] = float4(Input[id.xy].x, Input[id.xy].y, Input[id.xy].z, Input[id.xy].w * opacity) * tint;
+}
+
+[numthreads(8, 8, 1)]
+void GradientY(uint3 id : SV_DispatchThreadID)
+{
+    Result[id.xy] = float4(Input[id.xy].x * gradient[id.xy].x, Input[id.xy].y * gradient[id.xy].y, Input[id.xy].z * gradient[id.xy].z, Input[id.xy].w * gradient[id.xy].w) * tint;
+}
+
+[numthreads(8, 8, 1)]
+void GradientX(uint3 id : SV_DispatchThreadID)
+{
+    Result[id.xy] = float4(Input[id.xy].x * gradient[id.xy].x, Input[id.xy].y * gradient[id.xy].y, Input[id.xy].z * gradient[id.xy].z, Input[id.xy].w * gradient[id.xy].w) * tint;
+}
+
+[numthreads(8, 8, 1)]
+void CookOnTop(uint3 id : SV_DispatchThreadID)
+{
+    Result[id.xy] = float4(Input[id.xy].x * (1.0f-cooking[id.xy].w) + cooking[id.xy].x * cooking[id.xy].w,
+        Input[id.xy].y * (1.0f - cooking[id.xy].w) + cooking[id.xy].y * cooking[id.xy].w,
+        Input[id.xy].z * (1.0f - cooking[id.xy].w) + cooking[id.xy].z * cooking[id.xy].w,
+        Input[id.xy].w * (1.0f - cooking[id.xy].w) + cooking[id.xy].w);
+}
